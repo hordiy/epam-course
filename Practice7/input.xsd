@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  XML schema -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://nure.ua/hordiienko/practice7"
+		xmlns:tns="http://nure.ua/hordiienko/practice7">
+
+    <!-- Root Element-->
+    <xsd:element name="knifes">
+        <xsd:complexType>
+            <xsd:sequence>
+
+                <!-- Included unbounded instances of knifes-->
+                <xsd:element name="knife" type="tns:knifeDesc" minOccurs="0"
+                             maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- Define of type Knife Description-->
+    <xsd:complexType name="knifeDesc">
+        <xsd:sequence>
+            <xsd:element name="knifeType">
+
+                <!-- Define Knifes types with restriction -->
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="knife"/>
+                        <xsd:enumeration value="dagger"/>
+                        <xsd:enumeration value="saber"/>
+                        <xsd:enumeration value="sword"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+
+            <!-- Define the handy parametr with restriction for one or two-->
+            <xsd:element name="knifeHandy">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:integer">
+                        <xsd:minInclusive value="1"/>
+                        <xsd:maxInclusive value="2"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <!-- Define Country of origin as regular string -->
+            <xsd:element name="knifeOrigin" type="xsd:string"/>
+
+            <!-- Define group of parametrs Visual-->
+            <xsd:element name="knifeVisual">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="knifeBlade">
+                            <xsd:complexType>
+                                <xsd:attribute name="length" type="tns:bladeSize" use="required"/>
+                                <xsd:attribute name="width" type="tns:bladeSize" use="required"/>
+                                <xsd:attribute name="metal" type="xsd:string" use="required"/>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="knifeHandle">
+                            <xsd:complexType>
+                                <xsd:choice>
+                                    <xsd:element name="wood">
+                                        <xsd:complexType>
+                                            <xsd:attribute name="type" type="xsd:string" use="required">
+                                            </xsd:attribute>
+                                        </xsd:complexType>
+                                    </xsd:element>
+                                    <xsd:element name="leatherCoated"/>
+                                    <xsd:element name="plastic"/>
+                                </xsd:choice>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="collection" type="xsd:boolean"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:ID"/>
+    </xsd:complexType>
+
+    <!-- Blade size type definition with restriction -->
+    <xsd:simpleType name="bladeSize">
+        <xsd:restriction base="xsd:integer">
+            <xsd:minInclusive value="10"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>

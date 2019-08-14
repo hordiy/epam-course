@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<p7:knifes xmlns:p7="http://nure.ua/hordiienko/practice7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nure.ua/hordiienko/practice7 input.xsd">
+<knife name="Apanch">
+<knifeType>dagger</knifeType>
+<knifeHandy>1</knifeHandy>
+<knifeOrigin>Austria</knifeOrigin>
+<knifeVisual>
+<knifeBlade length="90" metal="steel" width="20"/>
+<knifeHandle>
+<wood type="oak"/>
+</knifeHandle>
+</knifeVisual>
+<collection>false</collection>
+</knife>
+<knife name="Kauch">
+<knifeType>sword</knifeType>
+<knifeHandy>2</knifeHandy>
+<knifeOrigin>China</knifeOrigin>
+<knifeVisual>
+<knifeBlade length="120" metal="iron" width="30"/>
+<knifeHandle>
+<leatherCoated/>
+</knifeHandle>
+</knifeVisual>
+<collection>false</collection>
+</knife>
+<knife name="Felenge">
+<knifeType>knife</knifeType>
+<knifeHandy>1</knifeHandy>
+<knifeOrigin>France</knifeOrigin>
+<knifeVisual>
+<knifeBlade length="10" metal="copper" width="20"/>
+<knifeHandle>
+<plastic/>
+</knifeHandle>
+</knifeVisual>
+<collection>true</collection>
+</knife>
+</p7:knifes>
